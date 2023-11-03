@@ -10,8 +10,8 @@
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #87c5fe;
-            color: #333;
+            background-color: #0A192F; /* Dark blue background */
+            color: #CCD6F6; /* Soft white text color for readability */
         }
         .container {
             max-width: 1200px;
@@ -25,8 +25,8 @@
             margin-right: 20px;
         }
         header {
-            background: #005c99;
-            color: #ffffff;
+            background: #112240; /* Slightly lighter blue for the header */
+            color: #CCD6F6;
             padding: 20px 0;
             clear: both;
         }
@@ -36,9 +36,8 @@
         }
         nav ul {
             padding: 0;
-            background: #333;
+            background: #233554; /* Another shade of blue for the navbar */
             overflow: hidden;
-            color: rgb(74, 74, 74);
             list-style: none;
             text-align: center;
             margin: 0;
@@ -47,45 +46,47 @@
             display: inline;
         }
         nav ul li a {
-            color: rgb(99, 99, 99);
+            color: #CCD6F6;
             text-decoration: none;
             padding: 15px 20px;
             display: inline-block;
+            transition: background-color 0.3s;
         }
         nav ul li a:hover {
-            background-color: #555;
+            background-color: #3A5278; /* Highlight color for links on hover */
         }
         ul.repos {
             list-style: none;
             padding: 0;
         }
         ul.repos li {
-            background: #b8b8b8;
+            background: #192734; /* Dark element backgrounds to pop against the page background */
             margin-bottom: 10px;
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #2E4057; /* Subtle border */
             border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease-in-out;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3); /* Deeper shadow for 3D effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         ul.repos li:hover {
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transform: translateY(-5px); /* Slight raise effect on hover */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
         ul.repos li h2 a {
-            color: #005c99;
+            color: #58A6FF; /* Bright blue for clickable titles */
             text-decoration: none;
             font-size: 1.2em;
         }
         ul.repos li h2 a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Underline on hover for links */
         }
         ul.repos li p {
             margin: 10px 0 0;
-            color: #555;
+            color: #8892B0; /* Grey text for less important information */
         }
         footer {
-            background: #333;
-            color: rgb(164, 164, 164);
+            background: #233554; /* Match the navbar */
+            color: #CCD6F6;
             text-align: center;
             padding: 10px 0;
             position: relative;
