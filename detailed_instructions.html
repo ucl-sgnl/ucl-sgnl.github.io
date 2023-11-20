@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detailed Instructions for UCL SGNL Tools</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header class="container">
+        <h1>Detailed Instructions for UCL SGNL Tools</h1>
+        <p>Step-by-step guide to effectively utilize our tools for radiation force modelling.</p>
+    </header>
+
+    <!-- SRP-TRR Classic Instructions -->
+    <section id="srp-trr-classic-instructions" class="container">
+        <h2>Using SRP-TRR Classic</h2>
+        <p>Detailed steps for using the SRP-TRR Classic tool for solar radiation pressure and thermal re-radiation calculations.</p>
+        
+        <!-- Myriad Remote Access -->
+        <div>
+            <h3>Accessing Myriad Remotely</h3>
+            <ol>
+                <li>https://www.rc.ucl.ac.uk/docs/Clusters/Myriad/</li>
+                <li>Follow the instructions at the link above for the latest instructions on how to gain access to the UCL Myrial Research Computing Cluster.</li>
+            </ol>
+        </div>
+
+        <!-- File Transfer Using WinSCP -->
+        <div>
+            <h3>Transferring Files from Myriad using WinSCP</h3>
+            <ol>
+                <li>Open WinSCP and set up a 'New Site' in the left window.</li>
+                <li>Input a new session with the following details:
+                    <ul>
+                        <li>File protocol: SCP</li>
+                        <li>Host name: myriad.rc.ucl.ac.uk</li>
+                        <li>Username: [your UCL username]</li>
+                    </ul>
+                </li>
+                <li>After entering your login details, the password will be required twice.</li>
+            </ol>
+        </div>
+
+        <!-- Running the Computation -->
+        <div>
+            <h3>Running the Computation on Myriad</h3>
+            <p>Detailed steps for setting up the environment in Myriad, running computations, and generating force models on your machine.</p>
+            
+            <h4>Setting up the Environment in Myriad</h4>
+            <ol>
+                <li>Login into Myriad.</li>
+                <li>Unzip the myriad utils folder into the home directory and rename it:
+                    <ul>
+                        <li>Command: `mv myriad_utils utils`</li>
+                    </ul>
+                </li>
+                <li>Unzip srp trr classic.zip and cd into the folder. In the srp trr classic directory, type `make` to compile the code.</li>
+                <li>In the home directory, create a folder named res: `mkdir res`.</li>
+                <li>Copy the parameters.txt file from the srp trr classic directory into the new res folder and modify as needed using a text editor like vim.</li>
+            </ol>
+        
+            <h4>Running Computation Using Myriad</h4>
+            <ol>
+                <li>In the utils folder, to run the computation, execute the setup script with the model file name and the mass of the model: `./ucl_srp_legion_setup.sh <model file name> <mass of model>`.</li>
+                <li>Use `qstat` to check the status of the computation.</li>
+                <li>To delete a job, use `qdel -u <your UCL username>`.</li>
+                <li>Computations typically take 1-2 days. Upon completion, directories named after the model file name will be created in the home and Scratch directories.</li>
+            </ol>
+        
+            <h4>Generating Force Model on Your Machine</h4>
+            <ol>
+                <li>Unzip the grid utils20.zip folder and create a new directory named after your mission inside the grid utils folder.</li>
+                <li>Using WinSCP, copy the force model files from Myriad to your local machine into the newly created mission directory.</li>
+                <li>Run the pad_sp_output.py script to pad the spiral points file, ensuring it is correctly formatted for the grid generation step.</li>
+                <li>To create grid files, run the createBasShepardMultiple.py script with appropriate parameters for your mission. This will produce .BAS files in the surfer directory.</li>
+                <li>Move the generated grid files to a dedicated directory within your mission folder and run the surfer6poleReplicate.py script to replicate the data for the poles.</li>
+                <li>The final radiation force grid files are now ready for use in your simulations.</li>
+            </ol>
+        </div>
+        </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2023 UCL Space Geodesy & Navigation Laboratory. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
