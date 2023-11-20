@@ -136,7 +136,34 @@
 
     <div id="rfm-explanation" class="container">
         <h2>Radiation Force Modelling Pipeline</h2>
-        <p>Explain how to build a spacecraft radiation force model using our tools. Overview here.</p>
+        <p>
+            This section presents a comprehensive overview of the process for generating a spacecraft radiation force model. The journey begins with initial information gathering and extends to integration with advanced orbit propagation/determination tools, such as NASA JPL's GipsyX. 
+        </p>
+    
+        <p>
+            The initial phase of modeling involves extensive research, ranging from open-source intelligence (OSINT) to direct collaboration with spacecraft engineering teams. This crucial information gathering stage lays the foundation for building an accurate spacecraft model.
+        </p>
+    
+        <p>
+            The construction of the spacecraft model focuses on two critical aspects: the accurate representation of its geometry (shape, orientation, and size) and the precise characterization of material properties (which influence interaction with incident or exiting radiation). This model is written line-by-line in a text file, utilizing geometric primitives detailed in the <a href="media/stc_manual_5_07.pdf">STC Manual </a>. The process is iterative, and the utilization of the spacecraft visualizer is key for obtaining quick and frequent feedback during this phase.
+        </p>
+    
+        <p>
+            Following the completion of the spacecraft model, the next step involves generating the radiation force model using SRP-TRR Classic (STC), a C++ program. STC takes the detailed spacecraft model and material properties to produce a set of files that constitute the radiation force model.
+        </p>
+    
+        <p>
+            Due to the computation-intensive nature of this process, it is typically executed on the UCL Research Compute Cluster (Myriad).
+        </p>
+    
+        <p>
+            Upon successful computation, the radiation force model is ready for testing in orbit propagation scenarios and can be integrated into other orbital analysis tools.
+        </p>
+    
+        <p>
+            The following sections detail the specific roles of each code repository involved in this process. Click on the headers for access to the corresponding repositories. Please note that certain repositories require appropriate permissions for access.
+        </p>
+    
         <img src="media/UCL_RFM_Pipeline_v1.png" alt="UCL SGNL Radiation Force Model Systems Diagram" style="width:100%; max-width:700px; margin-top:20px;">
     </div>
 
@@ -153,7 +180,7 @@
                 </ol>
             </li>
             <li>
-                <h2><a href="https://github.com/ucl-sgnl/srp-trr-classic">SRP-TRR Classic</a></h2>
+                <h2><a href="https://github.com/ucl-sgnl/SRP-TRR-Classic">SRP-TRR Classic</a></h2>
                 <p>C++-based solar radiation pressure and thermal re-radiation calculations.</p>
                 <ol>
                     <li>Detailed instructions on how to build a radiation force model from Spacecraft geometry and material properties is extensively covered here: <a href="media/stc_manual_5_07.pdf">STC Manual (v5.07)</a>.</li>
