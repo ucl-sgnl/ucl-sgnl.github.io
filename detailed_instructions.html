@@ -1,9 +1,120 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Detailed Instructions for UCL SGNL Tools</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UCL SGNL Radiation Force Modelling Process</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Open Sans', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #0A192F; /* Dark blue background */
+                color: #CCD6F6; /* Soft white text color for readability */
+            }
+            .container {
+                max-width: 1200px;
+                margin: auto;
+                overflow: auto;
+                padding: 0 20px;
+            }
+            .logo-container {
+                float: left;
+                padding: 15px;
+                margin-right: 20px;
+            }
+            header {
+                background: #112240; /* Slightly lighter blue for the header */
+                color: #CCD6F6;
+                padding: 20px 0;
+                clear: both;
+            }
+            header h1, header p {
+                margin: 0;
+                padding: 0;
+            }
+            nav ul {
+                padding: 0;
+                background: #233554; /* Another shade of blue for the navbar */
+                overflow: hidden;
+                list-style: none;
+                text-align: center;
+                margin: 0;
+            }
+            nav ul li {
+                display: inline;
+            }
+            nav ul li a {
+                color: #CCD6F6;
+                text-decoration: none;
+                padding: 15px 20px;
+                display: inline-block;
+                transition: background-color 0.3s;
+            }
+            nav ul li a:hover {
+                background-color: #3A5278; /* Highlight color for links on hover */
+            }
+            ul.repos {
+                list-style: none;
+                padding: 0;
+            }
+            ul.repos li {
+                background: #192734; /* Dark element backgrounds to pop against the page background */
+                margin-bottom: 10px;
+                padding: 20px;
+                border: 1px solid #2E4057; /* Subtle border */
+                border-radius: 5px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3); /* Deeper shadow for 3D effect */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            ul.repos li:hover {
+                transform: translateY(-5px); /* Slight raise effect on hover */
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            }
+            ul.repos li h2 a {
+                color: #58A6FF; /* Bright blue for clickable titles */
+                text-decoration: none;
+                font-size: 1.2em;
+            }
+            ul.repos li h2 a:hover {
+                text-decoration: underline; /* Underline on hover for links */
+            }
+            ul.repos li p {
+                margin: 10px 0 0;
+                color: #8892B0; /* Grey text for less important information */
+            }
+            footer {
+                background: #233554; /* Match the navbar */
+                color: #CCD6F6;
+                text-align: center;
+                padding: 10px 0;
+                position: relative;
+                bottom: 0;
+                width: 100%;
+            }
+            @media only screen and (max-width: 600px) {
+                .logo-container, header h1, nav ul li a, ul.repos li {
+                    float: none;
+                    text-align: center;
+                    width: 100%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                }
+                .logo-container img {
+                    margin: auto;
+                }
+                header, nav ul li a, footer {
+                    padding: 10px;
+                }
+                .repos li {
+                    padding: 10px;
+                    box-shadow: none;
+                }
+            }
+        </style>
+        
+    </head>
 <body>
     <header class="container">
         <h1>Detailed Instructions for UCL SGNL Tools</h1>
@@ -64,16 +175,6 @@
                 <li>Use `qstat` to check the status of the computation.</li>
                 <li>To delete a job, use `qdel -u <your UCL username>`.</li>
                 <li>Computations typically take 1-2 days. Upon completion, directories named after the model file name will be created in the home and Scratch directories.</li>
-            </ol>
-        
-            <h4>Generating Force Model on Your Machine</h4>
-            <ol>
-                <li>Unzip the grid utils20.zip folder and create a new directory named after your mission inside the grid utils folder.</li>
-                <li>Using WinSCP, copy the force model files from Myriad to your local machine into the newly created mission directory.</li>
-                <li>Run the pad_sp_output.py script to pad the spiral points file, ensuring it is correctly formatted for the grid generation step.</li>
-                <li>To create grid files, run the createBasShepardMultiple.py script with appropriate parameters for your mission. This will produce .BAS files in the surfer directory.</li>
-                <li>Move the generated grid files to a dedicated directory within your mission folder and run the surfer6poleReplicate.py script to replicate the data for the poles.</li>
-                <li>The final radiation force grid files are now ready for use in your simulations.</li>
             </ol>
         </div>
         </section>
